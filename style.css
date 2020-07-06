@@ -5,6 +5,12 @@ h1 , p , hr{
 a , h2 {
 	color:green;
 }
+
+.title{
+	text-font:"monochrome";
+	color:blue;
+}
+
 body {
   background-image: url("http://3.bp.blogspot.com/-QvYoJsLgtgM/Uh25s07MTmI/AAAAAAAAAPY/yIx7AJBg6n8/s1600/zendesk-hacked.jpg");
   /*background-color: black;*/
