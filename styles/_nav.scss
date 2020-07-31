@@ -25,7 +25,6 @@
             list-style: none;
             display: flex;
             justify-content: space-between;
-
             flex: 1;
 
             li{
@@ -44,6 +43,23 @@
                 font-family: 'Rosario', sans-serif;
                 text-decoration: none;
                 color: rgb(56, 56, 56);
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 900px){
+    
+    .nav-container{
+        height: 30px;
+        nav{
+            align-items: center;
+            h1{
+                font-size: 20px;
+            }
+
+            ul li a{
+                font-size: 10px;
             }
         }
     }
