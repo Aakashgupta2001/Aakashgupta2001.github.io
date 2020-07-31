@@ -2,10 +2,12 @@
     position: relative;
     height: 100vh;
     width: 100%;
-    background-image: linear-gradient(-230deg , #FFA984 , white);
+    //background-image: linear-gradient(-230deg , #FFA984 , white);
+    background-image: linear-gradient(-230deg , #fceded/*rgba(255, 255, 255, 0.9)*/, #97A5F0 );
     overflow: hidden;
 }
 
+/*
 .skills-background:after{
     content: "";
     position: absolute;
@@ -13,16 +15,92 @@
     background-size: cover;
     height: 50%;
     width: 100%;
+    z-index: 0;
     background-image: url(/img/Vector1.png);
-    z-index: 1;
 }
+*/
+
+.skills-background{
+    z-index: 1;
+    .skills-container{
+
+            width: 100%;
+            height: 100vh;
+            align-items: center;
+            display: grid;
+            grid-template-rows: 1fr 2fr;
+
+            .skills-heading{
+                width: 80%;
+                position: relative;
+                grid-row: 1/2;
+                left: 10%;
+                top:5%;
+                font-weight: lighter;
+                font-size: 60px;
+                font-family: 'Quantico', sans-serif;
+                color: #3E3E3E;
+            }
+
+        .containing-container{
+                grid-row: 2/3;
+                z-index: 1;
+                height: 70%;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                
+            .card-container{
+                
+              
+                width: 70%;
+                display: flex;
+                justify-content: space-between;
+                
+                
 
 
-.lower{
+                .card1, .card2 , .card3{
+                    height: 100%;
+                    width: 25%;
+                    //background-color: #b697f0;
+                    border-radius: 15px;
+                    overflow: hidden;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    box-shadow: #3E3E3E 3px 3px 5px;
 
-    .curve{
-        position: relative;
-        width: 200%;
-        bottom:-400px;
+                    img{
+                       // background-color: #b697f0;
+                        width: 100%;
+                        padding: 10px;
+                        padding-top: 15px;
+                        height: 50%;
+                        object-fit: contain;
+                    }
+
+                    ul{
+                        position: relative;
+                        top: 5%;
+                        width: 10rem;
+                        list-style: none;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+
+
+                        li{
+                            display: flex;
+                            justify-content: center;
+                            font-weight: bold;
+                            letter-spacing: 1px;
+                            font-family: 'Rosario', sans-serif;
+                            font-size: 20px;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
