@@ -1,0 +1,46 @@
+.background{
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(140deg , #fceded/*rgba(255, 255, 255, 0.9)*/, #97A5F0 );
+    overflow: hidden;
+}
+
+.home-page{
+    position: relative;
+    left: 10%;
+    width: 100%;
+    
+    height: 100vh;
+    grid-template-columns: 1fr,1fr;
+    grid-template-rows: 1fr,1fr;
+    grid: "text ."". img";
+    display: grid;
+    .text{
+        grid-area: text;
+        display: flex;
+        flex-direction: column;
+        font-family: 'Poppins', sans-serif;
+        justify-content: flex-end;
+        
+
+        h2{
+            font-size: 60px;
+        }
+        p{
+            font-size: 40px;
+        }
+    }
+
+    .image{
+        position: relative;
+        grid-area: img;
+        width: 100%;
+        right: 45%;
+        bottom: 30%;
+        display: flex;
+        grid-row: 2/3;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+}
