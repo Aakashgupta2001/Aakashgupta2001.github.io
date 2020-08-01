@@ -8,6 +8,7 @@
 html {
     scroll-behavior: smooth;
     scroll-snap-type: y mandatory;
+    font-size: 62.5%;
   }
 
 
@@ -20,6 +21,38 @@ html {
     -ms-user-select: none;
     user-select: none;
 }
+
+@media screen and (max-width: 1050px){
+    html{
+        font-size: 45%;
+    }
+}
+@media screen and (max-width: 900px){
+    html{
+        font-size: 40%;
+    }
+}
+
+@media screen and (max-width: 750px){
+    html{
+        font-size: 30%;
+    }
+}
+
+@media screen and (max-width: 600px){
+    html{
+        font-size: 25%;
+    }
+}
+
+@media screen and (max-width: 480px){
+    html{
+        font-size: 20%;
+    }
+}
+
+
+
 
 @import "nav";
 @import "home";

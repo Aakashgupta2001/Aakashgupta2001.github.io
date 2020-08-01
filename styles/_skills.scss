@@ -40,7 +40,7 @@
                 left: 10%;
                 top:5%;
                 font-weight: lighter;
-                font-size: 60px;
+                font-size: 6rem;
                 font-family: 'Quantico', sans-serif;
                 color: #3E3E3E;
             }
@@ -94,7 +94,7 @@
                         justify-content: center;
 
                         #card-topic{
-                            font-size: 18px;
+                            font-size: 1.8rem;
                             justify-content: flex-start;
                             padding-bottom: 3px;
                             font-weight: bold;
@@ -114,7 +114,7 @@
                             justify-content: center;
                             letter-spacing: 1px;
                             font-family: 'Rosario', sans-serif;
-                            font-size: 15px;
+                            font-size: 1.5rem;
                         }
                     }
                 }
@@ -159,23 +159,20 @@
 @media screen and (max-width: 1050px){
     .skills-background{
         .skills-container{
-            .skills-heading{
-                font-size: 30px;
-            }
 
             .containing-container{
                 .card-container{
                     .card1,.card2,.card3{
                         ul{
                             #card-topic{
-                                font-size: 15px;
+                         
                                 justify-content: center;
                                 padding-bottom: 2px;
                                 font-family: 'Quantico', sans-serif;
                             }
 
                             li{
-                                font-size: 10px;
+          
                                 font-weight: lighter;
                                 letter-spacing: 0px;
                             }
@@ -190,9 +187,6 @@
 @media screen and (max-width: 730px){
     .skills-background{
         .skills-container{
-            .skills-heading{
-                font-size: 20px;
-            }
 
             .containing-container{
                 .card-container{
@@ -205,7 +199,7 @@
 
                         ul{
                             #card-topic{
-                                font-size: 12px;
+                            
                                 justify-content: center;
                             }
 
@@ -216,7 +210,7 @@
                             }
 
                             li{
-                                font-size: 8px;
+                              
                                 font-weight: lighter;
                                 letter-spacing: 0px;
                             }
