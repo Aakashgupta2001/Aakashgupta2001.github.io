@@ -5,6 +5,20 @@
           box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+  -ms-scroll-snap-type: y mandatory;
+      scroll-snap-type: y mandatory;
+}
+
+.unselectable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 .nav-container {
   width: 100%;
   height: 4rem;
@@ -90,6 +104,7 @@
 }
 
 .main-background {
+  scroll-snap-align: start;
   width: 100%;
   height: 100vh;
   background-image: linear-gradient(140deg, #fceded, #97A5F0);
@@ -194,10 +209,6 @@
   overflow: hidden;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 /*
 .skills-background:after{
     content: "";
@@ -212,6 +223,7 @@ html {
 */
 .skills-background {
   z-index: 1;
+  scroll-snap-align: start;
 }
 
 .skills-background .skills-container {
@@ -266,6 +278,7 @@ html {
 }
 
 .skills-background .skills-container .containing-container .card-container .card1, .skills-background .skills-container .containing-container .card-container .card2, .skills-background .skills-container .containing-container .card-container .card3 {
+  cursor: pointer;
   height: 100%;
   width: 25%;
   border-radius: 15px;
@@ -296,7 +309,7 @@ html {
 .skills-background .skills-container .containing-container .card-container .card1 ul, .skills-background .skills-container .containing-container .card-container .card2 ul, .skills-background .skills-container .containing-container .card-container .card3 ul {
   position: relative;
   top: 5%;
-  width: 10rem;
+  width: 12rem;
   list-style: none;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -310,6 +323,22 @@ html {
           justify-content: center;
 }
 
+.skills-background .skills-container .containing-container .card-container .card1 ul #card-topic, .skills-background .skills-container .containing-container .card-container .card2 ul #card-topic, .skills-background .skills-container .containing-container .card-container .card3 ul #card-topic {
+  font-size: 18px;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  padding-bottom: 3px;
+  font-weight: bold;
+  font-family: 'Quantico', sans-serif;
+}
+
+.skills-background .skills-container .containing-container .card-container .card1 ul .line, .skills-background .skills-container .containing-container .card-container .card2 ul .line, .skills-background .skills-container .containing-container .card-container .card3 ul .line {
+  height: 2px;
+  width: 100%;
+  background-color: #3E3E3E;
+}
+
 .skills-background .skills-container .containing-container .card-container .card1 ul li, .skills-background .skills-container .containing-container .card-container .card2 ul li, .skills-background .skills-container .containing-container .card-container .card3 ul li {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -317,9 +346,105 @@ html {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  font-weight: bold;
   letter-spacing: 1px;
   font-family: 'Rosario', sans-serif;
-  font-size: 20px;
+  font-size: 15px;
+}
+
+.card1:hover {
+  -webkit-animation-name: card-anim;
+          animation-name: card-anim;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.card2:hover {
+  -webkit-animation-name: card-anim;
+          animation-name: card-anim;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.card3:hover {
+  -webkit-animation-name: card-anim;
+          animation-name: card-anim;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes card-anim {
+  from {
+    background-color: transparent;
+  }
+  to {
+    background-color: #f0f0f0;
+  }
+}
+
+@keyframes card-anim {
+  from {
+    background-color: transparent;
+  }
+  to {
+    background-color: #f0f0f0;
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  .skills-background .skills-container .skills-heading {
+    font-size: 30px;
+  }
+  .skills-background .skills-container .containing-container .card-container .card1 ul #card-topic, .skills-background .skills-container .containing-container .card-container .card2 ul #card-topic, .skills-background .skills-container .containing-container .card-container .card3 ul #card-topic {
+    font-size: 15px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    padding-bottom: 2px;
+    font-family: 'Quantico', sans-serif;
+  }
+  .skills-background .skills-container .containing-container .card-container .card1 ul li, .skills-background .skills-container .containing-container .card-container .card2 ul li, .skills-background .skills-container .containing-container .card-container .card3 ul li {
+    font-size: 10px;
+    font-weight: lighter;
+    letter-spacing: 0px;
+  }
+}
+
+@media screen and (max-width: 730px) {
+  .skills-background .skills-container .skills-heading {
+    font-size: 20px;
+  }
+  .skills-background .skills-container .containing-container .card-container .card1 img, .skills-background .skills-container .containing-container .card-container .card2 img, .skills-background .skills-container .containing-container .card-container .card3 img {
+    height: 40%;
+    padding-bottom: 5px;
+  }
+  .skills-background .skills-container .containing-container .card-container .card1 ul #card-topic, .skills-background .skills-container .containing-container .card-container .card2 ul #card-topic, .skills-background .skills-container .containing-container .card-container .card3 ul #card-topic {
+    font-size: 12px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .skills-background .skills-container .containing-container .card-container .card1 ul .line, .skills-background .skills-container .containing-container .card-container .card2 ul .line, .skills-background .skills-container .containing-container .card-container .card3 ul .line {
+    height: 1px;
+  }
+  .skills-background .skills-container .containing-container .card-container .card1 ul li, .skills-background .skills-container .containing-container .card-container .card2 ul li, .skills-background .skills-container .containing-container .card-container .card3 ul li {
+    font-size: 8px;
+    font-weight: lighter;
+    letter-spacing: 0px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .containing-container {
+    width: 10%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
 }
 /*# sourceMappingURL=style.css.map */

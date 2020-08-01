@@ -1,3 +1,4 @@
+
 .skills-background{
     position: relative;
     height: 100vh;
@@ -6,13 +7,6 @@
     background-image: linear-gradient(-230deg , #fceded/*rgba(255, 255, 255, 0.9)*/, #97A5F0 );
     overflow: hidden;
 }
-
-
-
-html {
-    scroll-behavior: smooth;
-  }
-
 
 
 /*
@@ -30,6 +24,7 @@ html {
 
 .skills-background{
     z-index: 1;
+    scroll-snap-align: start;
     .skills-container{
 
             width: 100%;
@@ -69,6 +64,7 @@ html {
 
 
                 .card1, .card2 , .card3{
+                    cursor: pointer;
                     height: 100%;
                     width: 25%;
                     //background-color: #b697f0;
@@ -91,24 +87,151 @@ html {
                     ul{
                         position: relative;
                         top: 5%;
-                        width: 10rem;
+                        width: 12rem;
                         list-style: none;
                         display: flex;
                         flex-direction: column;
                         justify-content: center;
 
+                        #card-topic{
+                            font-size: 18px;
+                            justify-content: flex-start;
+                            padding-bottom: 3px;
+                            font-weight: bold;
+                            font-family: 'Quantico', sans-serif;
+                        }
+
+                        .line{
+                            height: 2px;
+                            width: 100%;
+                            background-color: #3E3E3E;
+                        }
+                        
+
 
                         li{
                             display: flex;
                             justify-content: center;
-                            font-weight: bold;
                             letter-spacing: 1px;
                             font-family: 'Rosario', sans-serif;
-                            font-size: 20px;
+                            font-size: 15px;
                         }
                     }
                 }
             }
         }
+    }
+}
+
+.card1:hover{
+    animation-name: card-anim;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.card2:hover{
+    animation-name: card-anim;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+
+}
+
+.card3:hover{
+    animation-name: card-anim;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+
+}
+
+
+@keyframes card-anim{
+    from{
+        background-color: transparent;
+    }
+    to{
+        background-color: rgb(240, 240, 240);
+
+    }
+}
+
+
+
+@media screen and (max-width: 1050px){
+    .skills-background{
+        .skills-container{
+            .skills-heading{
+                font-size: 30px;
+            }
+
+            .containing-container{
+                .card-container{
+                    .card1,.card2,.card3{
+                        ul{
+                            #card-topic{
+                                font-size: 15px;
+                                justify-content: center;
+                                padding-bottom: 2px;
+                                font-family: 'Quantico', sans-serif;
+                            }
+
+                            li{
+                                font-size: 10px;
+                                font-weight: lighter;
+                                letter-spacing: 0px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 730px){
+    .skills-background{
+        .skills-container{
+            .skills-heading{
+                font-size: 20px;
+            }
+
+            .containing-container{
+                .card-container{
+                    .card1,.card2,.card3{
+
+                        img{
+                            height: 40%;
+                            padding-bottom: 5px;
+                        }
+
+                        ul{
+                            #card-topic{
+                                font-size: 12px;
+                                justify-content: center;
+                            }
+
+
+
+                            .line{
+                                height: 1px;
+                            }
+
+                            li{
+                                font-size: 8px;
+                                font-weight: lighter;
+                                letter-spacing: 0px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 500px){
+    .containing-container{
+        width: 10%;
+        justify-content: center;
     }
 }
