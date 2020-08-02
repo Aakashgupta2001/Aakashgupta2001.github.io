@@ -1,13 +1,15 @@
-
-.skills-background{
-    position: relative;
-    height: 100vh;
-    width: 100%;
-    //background-image: linear-gradient(-230deg , #FFA984 , white);
-    background-image: linear-gradient(-230deg , #fceded/*rgba(255, 255, 255, 0.9)*/, #97A5F0 );
-    overflow: hidden;
+.skills-background {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  //background-image: linear-gradient(-230deg , #FFA984 , white);
+  background-image: linear-gradient(
+    -230deg,
+    #fceded /*rgba(255, 255, 255, 0.9)*/,
+    #97a5f0
+  );
+  overflow: hidden;
 }
-
 
 /*
 .skills-background:after{
@@ -22,210 +24,192 @@
 }
 */
 
-.skills-background{
-    z-index: 1;
-    scroll-snap-align: start;
-    .skills-container{
+.skills-background {
+  z-index: 1;
+  scroll-snap-align: start;
+  .skills-container {
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+    display: grid;
+    grid-template-rows: 1fr 2fr;
 
+    .skills-heading {
+      width: 80%;
+      position: relative;
+      grid-row: 1/2;
+      left: 10%;
+      top: 5%;
+      font-weight: lighter;
+      font-size: 6rem;
+      font-family: "Quantico", sans-serif;
+      color: #3e3e3e;
+    }
+
+    .containing-container {
+      grid-row: 2/3;
+      z-index: 1;
+      height: 70%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+
+      .card-container {
+        width: 70%;
+        display: flex;
+        justify-content: space-between;
+
+        .card1,
+        .card2,
+        .card3 {
+          cursor: pointer;
+          height: 100%;
+          width: 25%;
+          //background-color: #b697f0;
+          border-radius: 15px;
+          overflow: hidden;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          box-shadow: #3e3e3e 3px 3px 5px;
+
+          img {
+            // background-color: #b697f0;
             width: 100%;
-            height: 100vh;
-            align-items: center;
-            display: grid;
-            grid-template-rows: 1fr 2fr;
+            padding: 10px;
+            padding-top: 15px;
+            height: 50%;
+            object-fit: contain;
+          }
 
-            .skills-heading{
-                width: 80%;
-                position: relative;
-                grid-row: 1/2;
-                left: 10%;
-                top:5%;
-                font-weight: lighter;
-                font-size: 6rem;
-                font-family: 'Quantico', sans-serif;
-                color: #3E3E3E;
+          ul {
+            position: relative;
+            top: 5%;
+            width: 12rem;
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            #card-topic {
+              font-size: 1.8rem;
+              justify-content: flex-start;
+              padding-bottom: 3px;
+              font-weight: bold;
+              font-family: "Quantico", sans-serif;
             }
 
-        .containing-container{
-                grid-row: 2/3;
-                z-index: 1;
-                height: 70%;
-                width: 100%;
-                display: flex;
+            .line {
+              height: 2px;
+              width: 100%;
+              background-color: #3e3e3e;
+            }
+
+            li {
+              display: flex;
+              justify-content: center;
+              letter-spacing: 1px;
+              font-family: "Rosario", sans-serif;
+              font-size: 1.5rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.card1:hover {
+  animation-name: card-anim;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+.card2:hover {
+  animation-name: card-anim;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+.card3:hover {
+  animation-name: card-anim;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes card-anim {
+  from {
+    background-color: transparent;
+  }
+  to {
+    background-color: rgb(240, 240, 240);
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  .skills-background {
+    .skills-container {
+      .containing-container {
+        .card-container {
+          .card1,
+          .card2,
+          .card3 {
+            ul {
+              #card-topic {
                 justify-content: center;
-                
-            .card-container{
-                
-              
-                width: 70%;
-                display: flex;
-                justify-content: space-between;
-                
-                
+                padding-bottom: 2px;
+                font-family: "Quantico", sans-serif;
+              }
 
-
-                .card1, .card2 , .card3{
-                    cursor: pointer;
-                    height: 100%;
-                    width: 25%;
-                    //background-color: #b697f0;
-                    border-radius: 15px;
-                    overflow: hidden;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    box-shadow: #3E3E3E 3px 3px 5px;
-
-                    img{
-                       // background-color: #b697f0;
-                        width: 100%;
-                        padding: 10px;
-                        padding-top: 15px;
-                        height: 50%;
-                        object-fit: contain;
-                    }
-
-                    ul{
-                        position: relative;
-                        top: 5%;
-                        width: 12rem;
-                        list-style: none;
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: center;
-
-                        #card-topic{
-                            font-size: 1.8rem;
-                            justify-content: flex-start;
-                            padding-bottom: 3px;
-                            font-weight: bold;
-                            font-family: 'Quantico', sans-serif;
-                        }
-
-                        .line{
-                            height: 2px;
-                            width: 100%;
-                            background-color: #3E3E3E;
-                        }
-                        
-
-
-                        li{
-                            display: flex;
-                            justify-content: center;
-                            letter-spacing: 1px;
-                            font-family: 'Rosario', sans-serif;
-                            font-size: 1.5rem;
-                        }
-                    }
-                }
+              li {
+                font-weight: lighter;
+                letter-spacing: 0px;
+              }
             }
+          }
         }
+      }
     }
+  }
 }
 
-.card1:hover{
-    animation-name: card-anim;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-}
-
-.card2:hover{
-    animation-name: card-anim;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-
-}
-
-.card3:hover{
-    animation-name: card-anim;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-
-}
-
-
-@keyframes card-anim{
-    from{
-        background-color: transparent;
-    }
-    to{
-        background-color: rgb(240, 240, 240);
-
-    }
-}
-
-
-
-@media screen and (max-width: 1050px){
-    .skills-background{
-        .skills-container{
-
-            .containing-container{
-                .card-container{
-                    .card1,.card2,.card3{
-                        ul{
-                            #card-topic{
-                         
-                                justify-content: center;
-                                padding-bottom: 2px;
-                                font-family: 'Quantico', sans-serif;
-                            }
-
-                            li{
-          
-                                font-weight: lighter;
-                                letter-spacing: 0px;
-                            }
-                        }
-                    }
-                }
+@media screen and (max-width: 730px) {
+  .skills-background {
+    .skills-container {
+      .containing-container {
+        .card-container {
+          .card1,
+          .card2,
+          .card3 {
+            img {
+              height: 40%;
+              padding-bottom: 5px;
             }
-        }
-    }
-}
 
-@media screen and (max-width: 730px){
-    .skills-background{
-        .skills-container{
+            ul {
+              #card-topic {
+                justify-content: center;
+              }
 
-            .containing-container{
-                .card-container{
-                    .card1,.card2,.card3{
+              .line {
+                height: 1px;
+              }
 
-                        img{
-                            height: 40%;
-                            padding-bottom: 5px;
-                        }
-
-                        ul{
-                            #card-topic{
-                            
-                                justify-content: center;
-                            }
-
-
-
-                            .line{
-                                height: 1px;
-                            }
-
-                            li{
-                              
-                                font-weight: lighter;
-                                letter-spacing: 0px;
-                            }
-                        }
-                    }
-                }
+              li {
+                font-weight: lighter;
+                letter-spacing: 0px;
+              }
             }
+          }
         }
+      }
     }
+  }
 }
 
-
-@media screen and (max-width: 500px){
-    .containing-container{
-        width: 10%;
-        justify-content: center;
-    }
+@media screen and (max-width: 500px) {
+  .containing-container {
+    width: 10%;
+    justify-content: center;
+  }
 }

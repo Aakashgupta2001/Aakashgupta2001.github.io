@@ -83,7 +83,7 @@ html {
       -ms-flex: 2;
           flex: 2;
   font-size: 4rem;
-  font-family: 'Quantico', sans-serif;
+  font-family: "Quantico", sans-serif;
 }
 
 .nav-container nav ul {
@@ -112,7 +112,7 @@ html {
 
 .nav-container nav ul a {
   font-size: 2rem;
-  font-family: 'Rosario', sans-serif;
+  font-family: "Rosario", sans-serif;
   text-decoration: none;
   color: #383838;
 }
@@ -121,7 +121,7 @@ html {
   scroll-snap-align: start;
   width: 100%;
   height: 100vh;
-  background-image: linear-gradient(140deg, #fceded, #97A5F0);
+  background-image: linear-gradient(140deg, #fceded, #97a5f0);
   overflow: hidden;
 }
 
@@ -149,7 +149,7 @@ html {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -213,7 +213,7 @@ html {
   position: relative;
   height: 100vh;
   width: 100%;
-  background-image: linear-gradient(-230deg, #fceded, #97A5F0);
+  background-image: linear-gradient(-230deg, #fceded, #97a5f0);
   overflow: hidden;
 }
 
@@ -256,8 +256,8 @@ html {
   top: 5%;
   font-weight: lighter;
   font-size: 6rem;
-  font-family: 'Quantico', sans-serif;
-  color: #3E3E3E;
+  font-family: "Quantico", sans-serif;
+  color: #3e3e3e;
 }
 
 .skills-background .skills-container .containing-container {
@@ -285,7 +285,9 @@ html {
           justify-content: space-between;
 }
 
-.skills-background .skills-container .containing-container .card-container .card1, .skills-background .skills-container .containing-container .card-container .card2, .skills-background .skills-container .containing-container .card-container .card3 {
+.skills-background .skills-container .containing-container .card-container .card1,
+.skills-background .skills-container .containing-container .card-container .card2,
+.skills-background .skills-container .containing-container .card-container .card3 {
   cursor: pointer;
   height: 100%;
   width: 25%;
@@ -301,11 +303,13 @@ html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-shadow: #3E3E3E 3px 3px 5px;
-          box-shadow: #3E3E3E 3px 3px 5px;
+  -webkit-box-shadow: #3e3e3e 3px 3px 5px;
+          box-shadow: #3e3e3e 3px 3px 5px;
 }
 
-.skills-background .skills-container .containing-container .card-container .card1 img, .skills-background .skills-container .containing-container .card-container .card2 img, .skills-background .skills-container .containing-container .card-container .card3 img {
+.skills-background .skills-container .containing-container .card-container .card1 img,
+.skills-background .skills-container .containing-container .card-container .card2 img,
+.skills-background .skills-container .containing-container .card-container .card3 img {
   width: 100%;
   padding: 10px;
   padding-top: 15px;
@@ -314,7 +318,9 @@ html {
      object-fit: contain;
 }
 
-.skills-background .skills-container .containing-container .card-container .card1 ul, .skills-background .skills-container .containing-container .card-container .card2 ul, .skills-background .skills-container .containing-container .card-container .card3 ul {
+.skills-background .skills-container .containing-container .card-container .card1 ul,
+.skills-background .skills-container .containing-container .card-container .card2 ul,
+.skills-background .skills-container .containing-container .card-container .card3 ul {
   position: relative;
   top: 5%;
   width: 12rem;
@@ -331,23 +337,29 @@ html {
           justify-content: center;
 }
 
-.skills-background .skills-container .containing-container .card-container .card1 ul #card-topic, .skills-background .skills-container .containing-container .card-container .card2 ul #card-topic, .skills-background .skills-container .containing-container .card-container .card3 ul #card-topic {
+.skills-background .skills-container .containing-container .card-container .card1 ul #card-topic,
+.skills-background .skills-container .containing-container .card-container .card2 ul #card-topic,
+.skills-background .skills-container .containing-container .card-container .card3 ul #card-topic {
   font-size: 1.8rem;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
   padding-bottom: 3px;
   font-weight: bold;
-  font-family: 'Quantico', sans-serif;
+  font-family: "Quantico", sans-serif;
 }
 
-.skills-background .skills-container .containing-container .card-container .card1 ul .line, .skills-background .skills-container .containing-container .card-container .card2 ul .line, .skills-background .skills-container .containing-container .card-container .card3 ul .line {
+.skills-background .skills-container .containing-container .card-container .card1 ul .line,
+.skills-background .skills-container .containing-container .card-container .card2 ul .line,
+.skills-background .skills-container .containing-container .card-container .card3 ul .line {
   height: 2px;
   width: 100%;
-  background-color: #3E3E3E;
+  background-color: #3e3e3e;
 }
 
-.skills-background .skills-container .containing-container .card-container .card1 ul li, .skills-background .skills-container .containing-container .card-container .card2 ul li, .skills-background .skills-container .containing-container .card-container .card3 ul li {
+.skills-background .skills-container .containing-container .card-container .card1 ul li,
+.skills-background .skills-container .containing-container .card-container .card2 ul li,
+.skills-background .skills-container .containing-container .card-container .card3 ul li {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -355,7 +367,7 @@ html {
       -ms-flex-pack: center;
           justify-content: center;
   letter-spacing: 1px;
-  font-family: 'Rosario', sans-serif;
+  font-family: "Rosario", sans-serif;
   font-size: 1.5rem;
 }
 
@@ -405,33 +417,45 @@ html {
 }
 
 @media screen and (max-width: 1050px) {
-  .skills-background .skills-container .containing-container .card-container .card1 ul #card-topic, .skills-background .skills-container .containing-container .card-container .card2 ul #card-topic, .skills-background .skills-container .containing-container .card-container .card3 ul #card-topic {
+  .skills-background .skills-container .containing-container .card-container .card1 ul #card-topic,
+  .skills-background .skills-container .containing-container .card-container .card2 ul #card-topic,
+  .skills-background .skills-container .containing-container .card-container .card3 ul #card-topic {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
     padding-bottom: 2px;
-    font-family: 'Quantico', sans-serif;
+    font-family: "Quantico", sans-serif;
   }
-  .skills-background .skills-container .containing-container .card-container .card1 ul li, .skills-background .skills-container .containing-container .card-container .card2 ul li, .skills-background .skills-container .containing-container .card-container .card3 ul li {
+  .skills-background .skills-container .containing-container .card-container .card1 ul li,
+  .skills-background .skills-container .containing-container .card-container .card2 ul li,
+  .skills-background .skills-container .containing-container .card-container .card3 ul li {
     font-weight: lighter;
     letter-spacing: 0px;
   }
 }
 
 @media screen and (max-width: 730px) {
-  .skills-background .skills-container .containing-container .card-container .card1 img, .skills-background .skills-container .containing-container .card-container .card2 img, .skills-background .skills-container .containing-container .card-container .card3 img {
+  .skills-background .skills-container .containing-container .card-container .card1 img,
+  .skills-background .skills-container .containing-container .card-container .card2 img,
+  .skills-background .skills-container .containing-container .card-container .card3 img {
     height: 40%;
     padding-bottom: 5px;
   }
-  .skills-background .skills-container .containing-container .card-container .card1 ul #card-topic, .skills-background .skills-container .containing-container .card-container .card2 ul #card-topic, .skills-background .skills-container .containing-container .card-container .card3 ul #card-topic {
+  .skills-background .skills-container .containing-container .card-container .card1 ul #card-topic,
+  .skills-background .skills-container .containing-container .card-container .card2 ul #card-topic,
+  .skills-background .skills-container .containing-container .card-container .card3 ul #card-topic {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
   }
-  .skills-background .skills-container .containing-container .card-container .card1 ul .line, .skills-background .skills-container .containing-container .card-container .card2 ul .line, .skills-background .skills-container .containing-container .card-container .card3 ul .line {
+  .skills-background .skills-container .containing-container .card-container .card1 ul .line,
+  .skills-background .skills-container .containing-container .card-container .card2 ul .line,
+  .skills-background .skills-container .containing-container .card-container .card3 ul .line {
     height: 1px;
   }
-  .skills-background .skills-container .containing-container .card-container .card1 ul li, .skills-background .skills-container .containing-container .card-container .card2 ul li, .skills-background .skills-container .containing-container .card-container .card3 ul li {
+  .skills-background .skills-container .containing-container .card-container .card1 ul li,
+  .skills-background .skills-container .containing-container .card-container .card2 ul li,
+  .skills-background .skills-container .containing-container .card-container .card3 ul li {
     font-weight: lighter;
     letter-spacing: 0px;
   }
