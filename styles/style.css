@@ -52,16 +52,20 @@ html {
 
 .nav-container {
   width: 100%;
-  height: 5rem;
+  height: 6rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  background-color: #1f1f1f;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  position: fixed;
+  z-index: 4;
+  overflow: hidden;
 }
 
 .nav-container nav {
@@ -71,19 +75,25 @@ html {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-box-align: baseline;
-      -ms-flex-align: baseline;
-          align-items: baseline;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 80%;
 }
 
 .nav-container nav h1 {
-  color: #383838;
   -webkit-box-flex: 2;
       -ms-flex: 2;
           flex: 2;
   font-size: 4rem;
   font-family: "Quantico", sans-serif;
+}
+
+.nav-container nav h1 a {
+  text-decoration: none;
+  color: whitesmoke;
+  -webkit-transition: 1s ease;
+  transition: 1s ease;
 }
 
 .nav-container nav ul {
@@ -108,37 +118,55 @@ html {
   background-color: white;
   padding: 5px 10px;
   border-radius: 12px;
+  color: #383838;
 }
 
 .nav-container nav ul a {
   font-size: 2rem;
   font-family: "Rosario", sans-serif;
   text-decoration: none;
-  color: #383838;
+  color: whitesmoke;
 }
 
 .main-background {
   scroll-snap-align: start;
   width: 100%;
   height: 100vh;
-  background-image: linear-gradient(140deg, #fceded, #97a5f0);
+  background-image: url(/img/home-back.jpg);
+  background-size: 100%;
+  /*rgba(255, 255, 255, 0.9)*/
   overflow: hidden;
 }
 
 .home-page {
   position: relative;
-  left: 10%;
+  left: 5%;
   width: 100%;
+  top: 15rem;
   height: 100vh;
-  -ms-grid-columns: (minmax(100px, 1fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  -ms-grid-rows: (minmax(100px, 1fr))[auto-fit];
-      grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
+  /* //remove shit below if bad things happen in code
+
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
+
+  //remove till here*/
   /* grid-template-columns: 2fr,1fr;
     grid-template-rows: 1fr,1fr;
     grid: "text ."". img";*/
-  display: -ms-grid;
-  display: grid;
+  /*
+  .image {
+    //position: relative;
+    // grid-area: img;
+    width: 100%;
+    //   right: 45%;
+    //  bottom: 30%;
+    display: flex;
+    //grid-row: 2/3;
+    padding-right: 30%;
+    align-items: center;
+    justify-content: center;
+  }
+  */
 }
 
 .home-page .text {
@@ -163,20 +191,6 @@ html {
 .home-page .text p {
   font-size: 4rem;
   width: 100%;
-}
-
-.home-page .image {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  padding-right: 30%;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
 }
 
 @media screen and (max-width: 1050px) {
@@ -213,7 +227,9 @@ html {
   position: relative;
   height: 100vh;
   width: 100%;
-  background-image: linear-gradient(-230deg, #fceded, #97a5f0);
+  background-image: url(/img/skills-back.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
   overflow: hidden;
 }
 
@@ -252,12 +268,12 @@ html {
   -ms-grid-row: 1;
   -ms-grid-row-span: 1;
   grid-row: 1/2;
-  left: 10%;
-  top: 5%;
+  left: 5%;
+  top: 20%;
   font-weight: lighter;
   font-size: 6rem;
   font-family: "Quantico", sans-serif;
-  color: #3e3e3e;
+  color: #1f1f1f;
 }
 
 .skills-background .skills-container .containing-container {
@@ -368,6 +384,7 @@ html {
   letter-spacing: 1px;
   font-family: "Rosario", sans-serif;
   font-size: 1.5rem;
+  color: #1f1f1f;
 }
 
 .card1:hover {
@@ -467,5 +484,24 @@ html {
         -ms-flex-pack: center;
             justify-content: center;
   }
+}
+
+.project-container {
+  width: 100%;
+  height: 100vh;
+  background-image: url(/img/inprogress.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.project-container h2 {
+  font-size: 7rem;
+  position: relative;
+  top: 25%;
+  left: 30%;
+  color: #e2e2e2;
+  -webkit-transform: translate(-40, -40);
+          transform: translate(-40, -40);
 }
 /*# sourceMappingURL=style.css.map */

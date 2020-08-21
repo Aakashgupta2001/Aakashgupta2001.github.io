@@ -1,0 +1,17 @@
+.project-container {
+  width: 100%;
+  height: 100vh;
+  background-image: url(/img/inprogress.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  overflow: hidden;
+
+  h2 {
+    font-size: 7rem;
+    position: relative;
+    top: 25%;
+    left: 30%;
+    color: rgb(226, 226, 226);
+    transform: translate(-40, -40);
+  }
+}
