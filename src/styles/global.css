@@ -25,6 +25,8 @@
 @layer base {
   /* the whole page scales up on big screens: 16px up to 1440px wide, ~18.4px at 1920, ~21.6px at 2560 (everything is in rem) */
   html { font-size: clamp(16px, 0.5vw + 8.8px, 22px); }
+  /* phones read closer to the eye: a step smaller so headlines and rows don't crowd the screen */
+  @media (max-width: 640px) { html { font-size: 14px; } }
   html { background: var(--color-bg); color: var(--color-ink); font-family: var(--font-body); }
   body { background: var(--color-bg); }
   html.lenis, html.lenis body { height: auto; }
@@ -34,7 +36,7 @@
 }
 
 @layer components {
-  .container-site { margin-inline: auto; max-width: 85rem; padding-inline: 1rem; }
+  .container-site { margin-inline: auto; max-width: 85rem; padding-inline: 16px; }
   @media (min-width: 768px) { .container-site { padding-inline: 2rem; } }
   @media (min-width: 1024px) { .container-site { padding-inline: 3.5rem; } }
   .eyebrow { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-muted); }

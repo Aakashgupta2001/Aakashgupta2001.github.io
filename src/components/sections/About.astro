@@ -14,13 +14,13 @@ import { chapters, toolbox } from '../../content/portfolio';
       <div class="border-t hairline">
         {chapters.map((c) => (
           <details class="row">
-            <summary class="grid-cols-[5.5rem_1fr_auto] md:grid-cols-[7rem_1fr_auto]">
-              <span class="font-mono text-xs text-faint">{c.years}</span>
-              <span>
+            <summary class="grid-cols-[1fr_auto] max-md:gap-y-1.5 md:grid-cols-[7rem_1fr_auto]">
+              <span class="font-mono text-xs text-faint max-md:col-start-1 max-md:row-start-1">{c.years}</span>
+              <span class="max-md:col-start-1 max-md:row-start-2">
                 <span class="row-title block text-lg font-medium tracking-tight">{c.place}</span>
                 <span class="mt-1 block font-mono text-[0.68rem] text-muted">{c.role}</span>
               </span>
-              <span class="row-mark" aria-hidden="true"></span>
+              <span class="row-mark max-md:col-start-2 max-md:row-span-2 max-md:row-start-1" aria-hidden="true"></span>
             </summary>
             <div class="row-body ml-[6.5rem] pb-8 max-md:ml-0 md:ml-[8rem]">
               <p class="max-w-[56ch] leading-relaxed text-ink/70">{c.body}</p>
