@@ -15,13 +15,17 @@ float noise(vec2 p){ vec2 i = floor(p), f = fract(p); f = f*f*(3.-2.*f);
 float fbm(vec2 p){ float v = 0., a = .5; for (int i = 0; i < 5; i++){ v += a*noise(p); p = p*2.03 + vec2(1.7, 9.2); a *= .5; } return v; }`;
 
 const FRAG = `
+#ifdef GL_FRAGMENT_PRECISION_HIGH
+precision highp float; // phones default lower, which breaks the noise
+#else
 precision mediump float;
+#endif
 uniform vec2 res; uniform float t; uniform float sc;
 uniform float pr; // how far the reader has got, 0..1: the blue in the smoke grows as they read
 uniform sampler2D air; // how far the cursor has pushed the smoke, per point (see AIR)
 ${NOISE}
 void main(){
-  vec2 uv = gl_FragCoord.xy / res.y;
+  vec2 uv = gl_FragCoord.xy / (sqrt(res.x * res.y) * .79); // swirl size follows screen area, so tall phones aren't zoomed in
   vec2 push = texture2D(air, gl_FragCoord.xy / res).xy * 2. - 1.;
   vec2 p = uv * 1.3 + vec2(0., sc) - push * .3;
   vec2 q = vec2(fbm(p + t*.035), fbm(p + vec2(5.2, 1.3) - t*.03));
@@ -40,7 +44,11 @@ void main(){
 // fast it's still moving (ba). A passing cursor parts the smoke to either side and gives it momentum;
 // the air carries itself along (so it rolls and curls) and slowly settles back, like smoke after a hand.
 const AIR = `
+#ifdef GL_FRAGMENT_PRECISION_HIGH
+precision highp float; // phones default lower, which breaks the noise
+#else
 precision mediump float;
+#endif
 uniform sampler2D prev; uniform vec2 res; uniform vec2 m; uniform vec2 vel; uniform float aspect;
 void main(){
   vec2 uv = gl_FragCoord.xy / res;
@@ -179,7 +187,10 @@ export function initBackdrop() {
   const painter = liquid(canvas);
   if (!painter) { canvas.remove(); return; }
 
-  const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // phones get the same smoke, drawn once and kept still, a little fainter
+  const phone = matchMedia('(max-width: 640px)').matches;
+  if (phone) canvas.style.opacity = '0.6';
+  const still = phone || matchMedia('(prefers-reduced-motion: reduce)').matches;
   const mouse: Mouse = { x: -9999, y: -9999, on: 0, rx: -9999, ry: -9999 };
   const target = { x: -9999, y: -9999, on: 0 };
   const resize = () => painter.resize(innerWidth, innerHeight, Math.min(devicePixelRatio || 1, 2));
