@@ -41,6 +41,8 @@
   @media (min-width: 1024px) { .container-site { padding-inline: 3.5rem; } }
   .eyebrow { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-muted); }
   .display { font-family: var(--font-display); font-variation-settings: "opsz" 144, "SOFT" 0; font-weight: 300; letter-spacing: -0.035em; line-height: 0.98; }
+  /* at phone sizes the 144 cut's hairlines vanish (the H in "How I" lost its crossbar): use a sturdier cut */
+  @media (max-width: 640px) { .display { font-variation-settings: "opsz" 48, "SOFT" 0; font-weight: 350; letter-spacing: -0.02em; } }
   /* fixed backdrop canvas sits under the content; main is lifted above it */
   .backdrop { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
   #main { position: relative; z-index: 1; }
