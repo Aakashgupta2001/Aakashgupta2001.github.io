@@ -1,0 +1,71 @@
+---
+// Opening screen: one line, a short intro, and a map of the parts of a system. Hovering or tapping a part
+// lights its links and says where it has been built. Detail appears only on interaction.
+import { person, systemMap } from '../../content/portfolio';
+import { curve } from '../../lib/diagram';
+const at = Object.fromEntries(systemMap.nodes.map((n) => [n.id, n]));
+---
+<section id="top" class="flex min-h-svh items-center pt-20 pb-16">
+  <div class="container-site grid w-full items-center gap-16 md:grid-cols-[1fr_1.15fr]">
+    <div>
+      <p class="eyebrow">{person.role} · {person.city}</p>
+      <h1 class="display mt-5 max-w-[15ch] text-[length:var(--text-display)] leading-[1.08]">I make complicated systems <em class="italic text-muted">simple to run.</em></h1>
+      <p class="mt-8 max-w-[38ch] leading-relaxed text-ink/75">{person.intro}</p>
+    </div>
+
+    <figure class="system-map">
+      <svg viewBox={`0 0 ${systemMap.w} ${systemMap.h}`} class="w-full" role="group" aria-label="Map of the parts of a system: devices, pipelines, core, access, operations, web, mobile and desktop">
+        {systemMap.edges.map(([a, b]) => (
+          <path d={curve(at[a], at[b])} fill="none" stroke="#2a2a2b" class="edge" data-a={a} data-b={b} />
+        ))}
+        {systemMap.nodes.map((n) => (
+          <g class="node" data-id={n.id} data-note={n.note} data-where={n.where} tabindex="0" role="button" aria-label={`${n.id}: ${n.note} ${n.where}`}>
+            <rect x={n.x - 28} y={n.y - 18} width="56" height={n.hub ? 56 : 46} fill="transparent" />
+            {n.hub
+              ? <rect x={n.x - 20} y={n.y - 13} width="40" height="26" rx="6" fill="#0b0b0c" stroke="#6aa0f8" />
+              : <circle cx={n.x} cy={n.y} r="4" fill="#0b0b0c" stroke="#8d8c86" />}
+            <text x={n.x} y={n.y + (n.hub ? 32 : 20)} text-anchor="middle" fill="#6f6e69" font-family="JetBrains Mono Variable, monospace" font-size="9">{n.id}</text>
+          </g>
+        ))}
+      </svg>
+      <figcaption class="mt-4 min-h-[4.6em] font-mono text-[0.72rem] leading-relaxed" aria-live="polite">
+        <span class="map-note block text-ink/75"></span>
+        <span class="map-where mt-1.5 block text-accent/80"></span>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.system-map').forEach((fig) => {
+    const note = fig.querySelector<HTMLElement>('.map-note')!;
+    const where = fig.querySelector<HTMLElement>('.map-where')!;
+    const edges = fig.querySelectorAll<SVGPathElement>('.edge');
+    const show = (g: SVGGElement | null) => {
+      fig.classList.toggle('is-focus', !!g);
+      fig.querySelectorAll('.node').forEach((n) => n.classList.toggle('is-on', n === g));
+      const id = g?.dataset.id;
+      edges.forEach((e) => e.classList.toggle('is-on', !!id && (e.dataset.a === id || e.dataset.b === id)));
+      note.textContent = g?.dataset.note ?? '';
+      where.textContent = g?.dataset.where ?? '';
+    };
+    fig.querySelectorAll<SVGGElement>('.node').forEach((g) => {
+      g.addEventListener('pointerenter', () => show(g));
+      g.addEventListener('focus', () => show(g));
+      g.addEventListener('click', () => show(g));
+    });
+    fig.addEventListener('pointerleave', (e) => { if (e.pointerType === 'mouse') show(null); });
+  });
+</script>
+
+<style>
+  /* the map is drawn at 480 units wide; on phones that shrinks labels too far, so size them up */
+  @media (max-width: 640px) { .system-map text { font-size: 13px; } }
+  .node { cursor: pointer; outline: none; transition: opacity 0.35s ease; }
+  .edge { transition: stroke 0.35s ease, opacity 0.35s ease; }
+  .is-focus .node:not(.is-on) { opacity: 0.35; }
+  .is-focus .edge:not(.is-on) { opacity: 0.3; }
+  .edge.is-on { stroke: var(--color-accent); stroke-dasharray: 3 6; animation: flow 2.4s linear infinite; }
+  .node.is-on circle { stroke: var(--color-ink); }
+  .node:focus-visible circle, .node:focus-visible rect:not([fill="transparent"]) { stroke: var(--color-accent); }
+</style>

@@ -1,0 +1,70 @@
+@import "tailwindcss";
+/* scan every source file, so pages added while the dev server runs get their classes too */
+@source "../";
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/fraunces/full-italic.css";
+@import "@fontsource-variable/fraunces/full.css";
+@import "@fontsource-variable/jetbrains-mono";
+
+@theme {
+  --color-bg: #0b0b0c;
+  --color-bg-raised: #131315;
+  --color-ink: #ecebe6;
+  --color-muted: #8d8c86;
+  --color-faint: #55554f;
+  --color-line: #ffffff14;
+  --color-accent: #6aa0f8;
+  --font-display: "Fraunces Variable", Georgia, serif;
+  --font-body: "Inter Variable", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, monospace;
+  --text-display: clamp(2rem, 1.8vw + 1.2rem, 2.9rem);
+  --text-h2: clamp(1.75rem, 1.4vw + 1rem, 2.5rem);
+  --text-h3: clamp(1.35rem, 0.7vw + 1rem, 1.75rem);
+}
+
+@layer base {
+  /* the whole page scales up on big screens: 16px up to 1440px wide, ~18.4px at 1920, ~21.6px at 2560 (everything is in rem) */
+  html { font-size: clamp(16px, 0.5vw + 8.8px, 22px); }
+  html { background: var(--color-bg); color: var(--color-ink); font-family: var(--font-body); }
+  body { background: var(--color-bg); }
+  html.lenis, html.lenis body { height: auto; }
+  .lenis.lenis-smooth { scroll-behavior: auto !important; }
+  ::selection { background: var(--color-accent); color: var(--color-bg); }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
+}
+
+@layer components {
+  .container-site { margin-inline: auto; max-width: 85rem; padding-inline: 1rem; }
+  @media (min-width: 768px) { .container-site { padding-inline: 2rem; } }
+  @media (min-width: 1024px) { .container-site { padding-inline: 3.5rem; } }
+  .eyebrow { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-muted); }
+  .display { font-family: var(--font-display); font-variation-settings: "opsz" 144, "SOFT" 0; font-weight: 300; letter-spacing: -0.035em; line-height: 0.98; }
+  /* fixed backdrop canvas sits under the content; main is lifted above it */
+  .backdrop { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+  #main { position: relative; z-index: 1; }
+  .hairline { border-color: var(--color-line); }
+
+  /* Reveal-on-scroll: elements start hidden only once JS has opted in (html.js), so no-JS still shows everything. */
+  html.js [data-reveal] { opacity: 0; transform: translateY(18px); transition: opacity 0.8s cubic-bezier(.2,.7,.2,1), transform 0.8s cubic-bezier(.2,.7,.2,1); }
+  html.js [data-reveal].is-in { opacity: 1; transform: none; }
+
+
+  /* Disclosure rows: a calm list where detail opens on click (native <details>, works without JS). */
+  .row { border-bottom: 1px solid var(--color-line); }
+  .row > summary { list-style: none; cursor: pointer; display: grid; align-items: baseline; gap: 1rem; padding-block: 1.4rem; }
+  .row > summary::-webkit-details-marker { display: none; }
+  .row > summary:focus-visible { outline: 1px solid var(--color-accent); outline-offset: 4px; }
+  .row-mark { position: relative; width: 0.7rem; height: 0.7rem; justify-self: end; align-self: center; }
+  .row-mark::before, .row-mark::after { content: ""; position: absolute; inset: 0.33rem 0 auto; height: 1px; background: var(--color-muted); transition: transform 0.35s ease, background 0.35s ease; }
+  .row-mark::after { transform: rotate(90deg); }
+  .row[open] .row-mark::after { transform: rotate(0deg); }
+  .row > summary:hover .row-mark::before, .row > summary:hover .row-mark::after { background: var(--color-accent); }
+  .row-title { transition: color 0.3s ease; }
+  .row > summary:hover .row-title { color: var(--color-accent); }
+  .row-body { padding-bottom: 2.5rem; animation: row-in 0.45s cubic-bezier(.2,.7,.2,1); }
+  @keyframes row-in { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+
+  /* System diagrams: edges carry a slow dash flow, i.e. data moving through the system. */
+  .flow { stroke-dasharray: 3 7; animation: flow 2.4s linear infinite; }
+  @keyframes flow { to { stroke-dashoffset: -20; } }
+}

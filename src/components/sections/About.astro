@@ -1,0 +1,45 @@
+---
+// A short timeline (years, place, role); each chapter's story opens on click. Toolbox as compact lines.
+import { chapters, toolbox } from '../../content/portfolio';
+---
+<section id="about" class="border-t hairline py-24 md:py-32">
+  <div class="container-site grid gap-14 lg:grid-cols-[1fr_1.6fr]">
+    <div data-reveal>
+      <p class="eyebrow">About</p>
+      <h2 class="display mt-4 text-[length:var(--text-h2)]">Six years of zero to one,<br /><em class="italic text-muted">and one to many.</em></h2>
+      <p class="mt-6 max-w-[36ch] leading-relaxed text-muted">I keep ending up where the system doesn’t exist yet, and I like building the team and habits that carry it on.</p>
+    </div>
+
+    <div data-reveal>
+      <div class="border-t hairline">
+        {chapters.map((c) => (
+          <details class="row">
+            <summary class="grid-cols-[5.5rem_1fr_auto] md:grid-cols-[7rem_1fr_auto]">
+              <span class="font-mono text-xs text-faint">{c.years}</span>
+              <span>
+                <span class="row-title block text-lg font-medium tracking-tight">{c.place}</span>
+                <span class="mt-1 block font-mono text-[0.68rem] text-muted">{c.role}</span>
+              </span>
+              <span class="row-mark" aria-hidden="true"></span>
+            </summary>
+            <div class="row-body ml-[6.5rem] pb-8 max-md:ml-0 md:ml-[8rem]">
+              <p class="max-w-[56ch] leading-relaxed text-ink/70">{c.body}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+
+      <div class="mt-16">
+        <p class="eyebrow">Toolbox</p>
+        <dl class="mt-6 space-y-3">
+          {toolbox.map((t) => (
+            <div class="grid gap-1 sm:grid-cols-[7.5rem_1fr]">
+              <dt class="text-sm text-ink/80">{t.area}</dt>
+              <dd class="font-mono text-[0.72rem] leading-relaxed text-muted">{t.items.join(' · ')}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>

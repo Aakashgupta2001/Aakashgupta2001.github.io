@@ -1,0 +1,29 @@
+---
+import '../styles/global.css';
+import Seo from '../components/Seo.astro';
+interface Props { title: string; description: string; ogImage?: string }
+const { title, description, ogImage } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0b0b0c" />
+    <link rel="icon" href="/favicon.svg" />
+    <Seo title={title} description={description} ogImage={ogImage} />
+    <script is:inline>document.documentElement.classList.add('js');</script>
+  </head>
+  <body class="antialiased">
+    <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:p-2 focus:text-black">Skip to content</a>
+    <slot />
+    <script>
+      import { initSmoothScroll } from '../lib/motion/smooth-scroll';
+      import { initReveals } from '../lib/motion/reveal';
+      import { initBackdrop } from '../lib/motion/backdrop';
+      initSmoothScroll();
+      initReveals();
+      initBackdrop();
+    </script>
+  </body>
+</html>

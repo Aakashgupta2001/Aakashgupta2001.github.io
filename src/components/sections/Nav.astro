@@ -1,0 +1,21 @@
+---
+import { person } from '../../content/portfolio';
+const items = [
+  { href: '#work', label: 'Work' },
+  { href: '#approach', label: 'Approach' },
+  { href: '#about', label: 'About' },
+  { href: '#contact', label: 'Contact' },
+];
+---
+<header class="fixed inset-x-0 top-0 z-40 mix-blend-difference">
+  <div class="container-site flex items-center justify-between py-5">
+    <a href="#top" class="font-mono text-xs tracking-[0.18em] uppercase text-white">{person.name}</a>
+    <nav aria-label="Primary">
+      <ul class="flex gap-5 md:gap-8">
+        {items.map((i) => (
+          <li class={i.href === '#contact' ? '' : 'max-sm:hidden'}><a href={i.href} class="font-mono text-xs tracking-[0.14em] uppercase text-white/70 transition-colors hover:text-white">{i.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
