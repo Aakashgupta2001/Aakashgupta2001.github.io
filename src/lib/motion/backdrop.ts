@@ -187,10 +187,10 @@ export function initBackdrop() {
   const painter = liquid(canvas);
   if (!painter) { canvas.remove(); return; }
 
-  // phones get the same smoke, drawn once and kept still, a little fainter
+  // phones get the same moving smoke, a little fainter and at a gentler frame rate (no cursor there to stir it)
   const phone = matchMedia('(max-width: 640px)').matches;
   if (phone) canvas.style.opacity = '0.6';
-  const still = phone || matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const mouse: Mouse = { x: -9999, y: -9999, on: 0, rx: -9999, ry: -9999 };
   const target = { x: -9999, y: -9999, on: 0 };
   const resize = () => painter.resize(innerWidth, innerHeight, Math.min(devicePixelRatio || 1, 2));
@@ -208,7 +208,7 @@ export function initBackdrop() {
   let last = 0, raf = 0;
   const frame = (now: number) => {
     raf = requestAnimationFrame(frame);
-    if (now - last < 1000 / 40) return; // slow motion doesn't need more than 40fps
+    if (now - last < 1000 / (phone ? 30 : 40)) return; // slow motion doesn't need more than this
     last = now;
     mouse.x = lerp(mouse.x, target.x, 0.08);
     mouse.y = lerp(mouse.y, target.y, 0.08);
